@@ -29,9 +29,11 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
 <!-- End VWO Async SmartCode -->
 
   <script>
-    let link = window.location.href;
-    if (link.indexOf("gui") > -1) {
-        $(".quote_btn").html("FREE DEMO HERE");
+    $( document ).ready(){
+      let link = window.location.href;
+      if (link.indexOf("gui") > -1) {
+          $(".quote_btn").html("FREE DEMO HERE");
+      }
     }
   </script>
 
