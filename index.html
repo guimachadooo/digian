@@ -28,14 +28,7 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
 </script>
 <!-- End VWO Async SmartCode -->
 
-  <script>
-    $( document ).ready(function() {
-      let link = window.location.href;
-      if (link.indexOf("gui") > -1) {
-          $(".quote_btn").html("FREE DEMO HERE");
-      }
-    });
-  </script>
+  
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -678,6 +671,14 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
   <!-- End Google Map -->
 
+  <script>
+    $( document ).ready(function() {
+      let link = window.location.href;
+      if (link.indexOf("gui") > -1) {
+          $(".quote_btn").html("FREE DEMO HERE");
+      }
+    });
+  </script>
 </body>
 
 </html>
