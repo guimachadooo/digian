@@ -97,7 +97,7 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
                 Request A Call back
               </h2>
             </div>
-            <form method="POST" action="https://script.google.com/macros/s/AKfycbynqM43H_jW4JRoXw6FbZ2khl6Nej5fb2LT48_hzML580jwg0dqdIKSzFe36wv-VpBb/exec">
+            <form id="myForm">
               <div>
                 <input type="text" name="Name" placeholder="Full Name " />
               </div>
@@ -116,6 +116,8 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
                 </button>
               </div>
             </form>
+
+            <div id="result"></div>
           </div>
         </div>
         <div class="col-md-6 col-lg-7 px-0">
@@ -256,6 +258,30 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
       $("body > section > div > div > div.col-md-5.col-lg-4.offset-md-1 > div > form > div.d-flex > button").click(function(){
         window.VWO = window.VWO || [];
         window.VWO.push(['nls.formAnalysis.markSuccess', formInstance, 1]);
+      });
+    });
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      $('#myForm').submit(function(event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+
+        // Simple AJAX request (replace with your server-side script)
+        $.ajax({
+          type: 'POST',
+          url: 'https://script.google.com/macros/s/AKfycbynqM43H_jW4JRoXw6FbZ2khl6Nej5fb2LT48_hzML580jwg0dqdIKSzFe36wv-VpBb/exec',
+          data: formData,
+          success: function(response) {
+            $('#result').html(response);
+          },
+          error: function(xhr, status, error) {
+            // Handle errors here
+            console.error(error); // Log the error for debugging
+            $('#result').html('An error occurred: ' + error); // Display a user-friendly message
+          }
+        });
       });
     });
   </script>
