@@ -283,6 +283,30 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
           }
         });
       });
+
+      $('#next').click(function(event) {
+        window.VWO = window.VWO || [];
+        window.VWO.push(['onSurveyAnswerSubmitted', function(data) {
+           if (!data) {
+               return;
+           }
+
+          // Simple AJAX request (replace with your server-side script)
+          $.ajax({
+            type: 'POST',
+            url: 'https://script.google.com/macros/s/AKfycbynqM43H_jW4JRoXw6FbZ2khl6Nej5fb2LT48_hzML580jwg0dqdIKSzFe36wv-VpBb/exec',
+            data: data,
+            success: function(response) {
+              $('#result').html(response);
+            },
+            error: function(xhr, status, error) {
+              // Handle errors here
+              console.error(error); // Log the error for debugging
+              $('#result').html('An error occurred: ' + error); // Display a user-friendly message
+            }
+          });
+        });
+      });
     });
   </script>
 
