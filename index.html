@@ -690,6 +690,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           $(".quote_btn-container .quote_btn").css("background", "#333");
       }
 
+      jQuery('body').append('<input type="button" value="Initialise VWO ON CODE" id="CP">');
+      jQuery("#CP").css("position", "fixed").css("top", 0).css("left", 0);
+
       jQuery('#CP').on('click', function(){
         window.VWO = window.VWO || [];
         window.VWO.init = window.VWO.init || function(state) { window.VWO.consentState = state; }
