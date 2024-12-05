@@ -689,6 +689,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           $(".quote_btn").html("FREE DEMO HERE");
           $(".quote_btn-container .quote_btn").css("background", "#333");
       }
+
+      jQuery('#CP').on('click', function(){
+        window.VWO = window.VWO || [];
+        window.VWO.init = window.VWO.init || function(state) { window.VWO.consentState = state; }
+        window.VWO.init(1);
+        console.log("VWO initialised!");
+    });
     });
   </script>
 </body>
