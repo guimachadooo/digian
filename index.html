@@ -730,85 +730,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Map -->
 <!-- jQuery -->
   <script src="js/jquery-3.4.1.min.js"></script>
+
   <script>
-    // Function to check if the cookie consent is already given
-function checkCookieConsent() {
-  const consent = getCookie('cookieConsent');
-  if (consent) {
-    return consent === 'accepted';
-  }
-  return null;
-}
-
-// Function to set a cookie
-function setCookie(name, value, days) {
-  const d = new Date();
-  d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000)); // Expires in 'days'
-  const expires = "expires=" + d.toUTCString();
-  document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
-
-// Function to get a cookie by name
-function getCookie(name) {
-  const cname = name + "=";
-  const decodedCookie = decodeURIComponent(document.cookie);
-  const ca = decodedCookie.split(';');
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i].trim();
-    if (c.indexOf(cname) === 0) {
-      return c.substring(cname.length, c.length);
-    }
-  }
-  return "";
-}
-
-// Show the cookie consent banner if consent hasn't been given
-function showCookieConsentBanner() {
-  const banner = document.getElementById('cookie-consent-banner');
-  banner.style.display = 'flex';
-}
-
-// Hide the cookie consent banner
-function hideCookieConsentBanner() {
-  const banner = document.getElementById('cookie-consent-banner');
-  banner.style.display = 'none';
-}
-
-// Event listeners for accept and decline buttons
-document.getElementById('accept-cookies').addEventListener('click', function () {
-      //VWO code snippet
-  window.VWO = window.VWO || [];
-  window.VWO.init = window.VWO.init || function(state) { 
-      window.VWO.consentState = state;
-      //console.log("Inside accepted cookie" + window.VWO.consentState);
-      };
-  window.VWO.init(1);
-  
-  setCookie('cookieConsent', 'accepted', 365); // Store the consent for 1 year
-  hideCookieConsentBanner();
+const element = document.getElementById("accept-cookies");
+   element.addEventListener("click", function() {
+ 
+	window.VWO = window.VWO || [];
+	window.VWO.init = window.VWO.init || function(state) { window.VWO.consentState = state; }
+	window.VWO.init(1);
 
 });
-
-document.getElementById('decline-cookies').addEventListener('click', function () {
-    //VWO Code snippet
-     window.VWO = window.VWO || [];
-     window.VWO.init = window.VWO.init || function(state) { 
-      window.VWO.consentState = state; 
-      //console.log("Inside declined cookie" + window.VWO.consentState);
-     };
-     window.VWO.init(3);
-     
-  setCookie('cookieConsent', 'declined', 365); // Store the decline for 1 year
-  hideCookieConsentBanner();
-});
-
-// Check if consent has already been given
-if (checkCookieConsent() === null) {
-  showCookieConsentBanner();
-} else {
-  hideCookieConsentBanner();
-}
-  </script>
+</script>
   
   <script>
     $( document ).ready(function() {
