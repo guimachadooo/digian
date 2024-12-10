@@ -17,17 +17,7 @@
   <!-- jQuery -->
   <script src="js/jquery-3.4.1.min.js"></script>
   
-  <script>
-      vwo_$('body').append('<input type="button" value="Initialise VWO ON CODE" id="CP">');
-      vwo_$("#CP").css("position", "fixed").css("top", 0).css("left", 0);
-
-      vwo_$('#CP').on('click', function(){
-        window.VWO = window.VWO || [];
-        window.VWO.init = window.VWO.init || function(state) { window.VWO.consentState = state; }
-        window.VWO.init(1);
-        console.log("VWO initialised!");
-      });
-  </script>
+ 
   <!-- Start VWO Async SmartCode -->
 <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com" />
 <script type='text/javascript' id='vwoCode'>
@@ -43,6 +33,17 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
 </script>
 <!-- End VWO Async SmartCode -->
   
+   <script>
+      vwo_$('body').append('<input type="button" value="Initialise VWO ON CODE" id="CP">');
+      vwo_$("#CP").css("position", "fixed").css("top", 0).css("left", 0);
+
+      vwo_$('#CP').on('click', function(){
+        window.VWO = window.VWO || [];
+        window.VWO.init = window.VWO.init || function(state) { window.VWO.consentState = state; }
+        window.VWO.init(1);
+        console.log("VWO initialised!");
+      });
+  </script>
   
   <script type="text/javascript">
 ﻿window.VWO = window.VWO || []
