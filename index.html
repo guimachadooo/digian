@@ -14,17 +14,7 @@
 
   <title>Digian</title>
   
-  <!-- jQuery -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script>
-     const element = document.getElementById("CP");
-element.addEventListener("click", function() {
-  window.VWO = window.VWO || [];
-        window.VWO.init = window.VWO.init || function(state) { window.VWO.consentState = state; }
-        window.VWO.init(1);
-        console.log("VWO initialised!");
-});
-</script>
+  
  
   <!-- Start VWO Async SmartCode -->
 <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com" />
@@ -727,7 +717,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
   <!-- End Google Map -->
-
+<!-- jQuery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script>
+     const element = document.getElementById("CP");
+element.addEventListener("click", function() {
+  window.VWO = window.VWO || [];
+        window.VWO.init = window.VWO.init || function(state) { window.VWO.consentState = state; }
+        window.VWO.init(1);
+        console.log("VWO initialised!");
+});
+</script>
   <script>
     $( document ).ready(function() {
       let link = window.location.href;
