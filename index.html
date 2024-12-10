@@ -18,10 +18,10 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   
   <script>
-      $('body').append('<input type="button" value="Initialise VWO ON CODE" id="CP">');
-      $("#CP").css("position", "fixed").css("top", 0).css("left", 0);
+      vwo_$('body').append('<input type="button" value="Initialise VWO ON CODE" id="CP">');
+      vwo_$("#CP").css("position", "fixed").css("top", 0).css("left", 0);
 
-      $('#CP').on('click', function(){
+      vwo_$('#CP').on('click', function(){
         window.VWO = window.VWO || [];
         window.VWO.init = window.VWO.init || function(state) { window.VWO.consentState = state; }
         window.VWO.init(1);
