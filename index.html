@@ -34,10 +34,10 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
 <!-- End VWO Async SmartCode -->
   
    <script>
-      vwo_$('body').append('<input type="button" value="Initialise VWO ON CODE" id="CP">');
-      vwo_$("#CP").css("position", "fixed").css("top", 0).css("left", 0);
+      jQuery('body').append('<input type="button" value="Initialise VWO ON CODE" id="CP">');
+      jQuery("#CP").css("position", "fixed").css("top", 0).css("left", 0);
 
-      vwo_$('#CP').on('click', function(){
+      jQuery('#CP').on('click', function(){
         window.VWO = window.VWO || [];
         window.VWO.init = window.VWO.init || function(state) { window.VWO.consentState = state; }
         window.VWO.init(1);
