@@ -16,7 +16,15 @@
   
   <!-- jQuery -->
   <script src="js/jquery-3.4.1.min.js"></script>
-  
+  <script>
+     const element = document.getElementById("CP");
+element.addEventListener("click", function() {
+  window.VWO = window.VWO || [];
+        window.VWO.init = window.VWO.init || function(state) { window.VWO.consentState = state; }
+        window.VWO.init(1);
+        console.log("VWO initialised!");
+});
+</script>
  
   <!-- Start VWO Async SmartCode -->
 <link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com" />
@@ -25,7 +33,6 @@ window._vwo_code || (function() {
 var account_id=912032,
 version=2.1,
 settings_tolerance=2000,
-use_existing_jquery=false,
 hide_element='body',
 hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;transition:none !important;',
 /* DO NOT EDIT BELOW THIS LINE */
@@ -33,17 +40,7 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
 </script>
 <!-- End VWO Async SmartCode -->
   
-   <script>
-      jQuery('body').append('<input type="button" value="Initialise VWO ON CODE" id="CP">');
-      jQuery("#CP").css("position", "fixed").css("top", 0).css("left", 0);
-
-      jQuery('#CP').on('click', function(){
-        window.VWO = window.VWO || [];
-        window.VWO.init = window.VWO.init || function(state) { window.VWO.consentState = state; }
-        window.VWO.init(1);
-        console.log("VWO initialised!");
-      });
-  </script>
+   
   
   <script type="text/javascript">
 ﻿window.VWO = window.VWO || []
@@ -112,6 +109,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
+            <input type="button" value="Initialise VWO ON CODE" id="CP" />
             <span>
               Digian
             </span>
