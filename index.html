@@ -789,15 +789,15 @@ document.addEventListener("DOMContentLoaded", function() {
   const element = document.querySelector(".quote_btn");
 
     element.addEventListener("click", function() {
-      window.VWO = window.VWO || [];
+	// Do not change anything in the following two lines
+	window.VWO = window.VWO || [];
 	VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
 
 	// Replace the property values with your actual values
 	VWO.event("digianClick", {
 		"hasClick": true
+	}); 
 	});
-	});
-  
 							 }
 });
 </script>
@@ -814,6 +814,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </body>
 
 </html>
+
 
 
 
