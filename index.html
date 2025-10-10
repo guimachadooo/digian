@@ -57,6 +57,58 @@ f=!1,v=d.querySelector('#vwoCode'),cc={};try{var e=JSON.parse(localStorage.getIt
 
 <body>
 
+	<script>
+		//onVariationApplied
+		window.VWO = window.VWO || [];
+window.VWO.push(['onVariationApplied', function (data) {
+    if (!data) { // data will be an array, [<callback_name>, <exp_id>, <variation_id>]
+        return;
+    }
+    var expId = data[1],                 // Index 1 of data contains experiment ID
+        variationId = data[2];           // Index 2 of data contains variation ID
+    if (typeof(_vwo_exp[expId].comb_n[variationId]) !== 'undefined') {
+        // This is an example for pushing data into GA4.
+        console.table("CampaignId:" + expId);
+        console.table("CampaignName:" + _vwo_exp[expId].name);
+        console.table("VariationId:" + variationId);
+        console.table("VariationName:" + _vwo_exp[expId].comb_n[variationId]);
+        });
+    }
+}]);
+	</script>
+
+	<script>
+		//setVariation
+		const oS = window.navigator.userAgentData.platform
+if (oS === 'macOS') {
+  console.log(oS, "oS")
+  window.VWO = window.VWO || [];
+  window.VWO.push(['setVariation', [{ e: '145', v: '1' }]]);
+  console.log("setting variation")
+}
+	</script>
+
+	<script>
+		//onVWOLoaded
+		window.VWO.push(['onVWOLoaded', function(data) {
+    if (!data) return;
+    var executedCampaigns = data[0]; 
+    var delayedCampaigns = data[1]; 
+    var smartCode = data[2];
+    console.log('Executed Campaigns:', executedCampaigns);
+    console.log('Delayed Campaigns:', delayedCampaigns);
+    console.log('SmartCode:', smartCode);
+}]);
+	</script>
+
+	<script>
+		//onEventReceive
+		window.VWO.push(['onEventReceive', 'sE', function (data) {
+   console.log(data, "Segmentation Evaluation")
+}]);
+	</script>
+
+
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
@@ -711,5 +763,6 @@ const element = document.getElementById("accept-cookies");
 </body>
 
 </html>
+
 
 
