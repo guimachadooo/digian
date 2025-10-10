@@ -783,12 +783,11 @@ if (oS === 'macOS') {
 <!-- jQuery -->
   <script src="js/jquery-3.4.1.min.js"></script>
    
-   <script>
-
-document.addEventListener("DOMContentLoaded", function() {
-  const element = document.querySelector(".quote_btn");
-
-    element.addEventListener("click", function() {
+   
+  
+  <script>
+    $( document ).ready(function() {
+		
 	// Do not change anything in the following two lines
 	window.VWO = window.VWO || [];
 	VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
@@ -796,14 +795,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Replace the property values with your actual values
 	VWO.event("digianClick", {
 		"hasClick": true
-	}); 
 	});
-							 
-});
-</script>
-  
-  <script>
-    $( document ).ready(function() {
+	  
       let link = window.location.href;
       if (link.indexOf("gui") > -1) {
           $(".quote_btn").html("FREE DEMO HERE");
@@ -814,6 +807,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </body>
 
 </html>
+
 
 
 
