@@ -150,7 +150,15 @@ if (oS === 'macOS') {
 
 	</script>
 
-<script>
+	<script>
+  // Seleciona o botão
+  const botao = document.getElementById("quote_btn");
+
+  // Adiciona o evento de clique
+  botao.addEventListener("click", function(event) {
+    console.log("O botão foi clicado!");
+    console.log("ID do botão:", event.target.id);
+	  
 	// Do not change anything in the following two lines
 	window.VWO = window.VWO || [];
 	VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
@@ -159,7 +167,9 @@ if (oS === 'macOS') {
 	VWO.event("digianClick", {
 		"hasClick": false
 	});
+  });
 </script>
+
 
 
   <div class="hero_area">
@@ -194,7 +204,7 @@ if (oS === 'macOS') {
               </li>
             </ul>
             <div class="quote_btn-container">
-              <button class="quote_btn">
+              <button class="quote_btn" id="quote_btn">
                 Get A Quote
               </button>
             </div>
@@ -796,6 +806,7 @@ if (oS === 'macOS') {
 </body>
 
 </html>
+
 
 
 
