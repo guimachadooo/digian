@@ -150,7 +150,16 @@ if (oS === 'macOS') {
 
 	</script>
 
+<script>
+	// Do not change anything in the following two lines
+	window.VWO = window.VWO || [];
+	VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
 
+	// Replace the property values with your actual values
+	VWO.event("digianClick", {
+		"hasClick": false
+	});
+</script>
 
 
   <div class="hero_area">
@@ -784,29 +793,10 @@ if (oS === 'macOS') {
   <script src="js/jquery-3.4.1.min.js"></script>
    
    
-  
-  <script>
-    $( document ).ready(function() {
-		
-	// Do not change anything in the following two lines
-	window.VWO = window.VWO || [];
-	VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
-
-	// Replace the property values with your actual values
-	VWO.event("digianClick", {
-		"hasClick": true
-	});
-	  
-      let link = window.location.href;
-      if (link.indexOf("gui") > -1) {
-          $(".quote_btn").html("FREE DEMO HERE");
-          $(".quote_btn-container .quote_btn").css("background", "#333");
-      }
-    });
-  </script>
 </body>
 
 </html>
+
 
 
 
