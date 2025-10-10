@@ -784,31 +784,27 @@ if (oS === 'macOS') {
   <script src="js/jquery-3.4.1.min.js"></script>
    
    <script>
-const element = document.getElementByClassName("quote-btn");
-   element.addEventListener("click", function() {
- 
-	window.VWO = window.VWO || [];
-	VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const element = document.querySelector(".quote-btn");
 
-	// Replace the property values with your actual values
-	VWO.event("digianClick", {
-		"hasClick": true
-	});
+  if (element) {
+    element.addEventListener("click", function() {
+      window.VWO = window.VWO || [];
+      VWO.event = VWO.event || function() {
+        VWO.push(["event"].concat([].slice.call(arguments)));
+      };
 
+      VWO.event("digianClick", { hasClick: true });
+    });
+  }
 });
+</script>
 </script>
  
   
   <script>
     $( document ).ready(function() {
-		window.VWO = window.VWO || [];
-	VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
-
-	// Replace the property values with your actual values
-	VWO.event("digianClick", {
-		"hasClick": true
-	});
-		
       let link = window.location.href;
       if (link.indexOf("gui") > -1) {
           $(".quote_btn").html("FREE DEMO HERE");
@@ -819,6 +815,7 @@ const element = document.getElementByClassName("quote-btn");
 </body>
 
 </html>
+
 
 
 
