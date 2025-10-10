@@ -791,12 +791,12 @@ document.addEventListener("DOMContentLoaded", function() {
   if (element) {
     element.addEventListener("click", function() {
       window.VWO = window.VWO || [];
-      VWO.event = VWO.event || function() {
-        VWO.push(["event"].concat([].slice.call(arguments)));
-      };
+	VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
 
-      VWO.event("digianClick", { hasClick: true });
-    });
+	// Replace the property values with your actual values
+	VWO.event("digianClick", {
+		"hasClick": true
+	});
   }
 });
 </script>
@@ -813,6 +813,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </body>
 
 </html>
+
 
 
 
