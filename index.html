@@ -788,7 +788,6 @@ if (oS === 'macOS') {
 document.addEventListener("DOMContentLoaded", function() {
   const element = document.querySelector(".quote_btn");
 
-  if (element) {
     element.addEventListener("click", function() {
       window.VWO = window.VWO || [];
 	VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
@@ -797,7 +796,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	VWO.event("digianClick", {
 		"hasClick": true
 	});
-  }
+	});
+  
+							 }
 });
 </script>
   
@@ -813,6 +814,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </body>
 
 </html>
+
 
 
 
