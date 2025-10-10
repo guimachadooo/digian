@@ -150,25 +150,6 @@ if (oS === 'macOS') {
 
 	</script>
 
-	<script>
-  // Seleciona o botão
-  const botao = document.getElementById("quote_btn");
-
-  // Adiciona o evento de clique
-  botao.addEventListener("click", function(event) {
-    console.log("O botão foi clicado!");
-    console.log("ID do botão:", event.target.id);
-	  
-	// Do not change anything in the following two lines
-	window.VWO = window.VWO || [];
-	VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
-
-	// Replace the property values with your actual values
-	VWO.event("digianClick", {
-		"hasClick": false
-	});
-  });
-</script>
 
 
 
@@ -803,9 +784,30 @@ if (oS === 'macOS') {
   <script src="js/jquery-3.4.1.min.js"></script>
    
    
+	<script>
+		
+  $(document).ready(function() {
+  $("#quote_btn").click(function() {
+
+  // Adiciona o evento de clique
+  
+    console.log("O botão foi clicado!");
+	  
+	// Do not change anything in the following two lines
+	window.VWO = window.VWO || [];
+	VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
+
+	// Replace the property values with your actual values
+	VWO.event("digianClick", {
+		"hasClick": false
+	});
+  });
+  });
+</script>
 </body>
 
 </html>
+
 
 
 
