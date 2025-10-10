@@ -72,7 +72,6 @@ window.VWO.push(['onVariationApplied', function (data) {
         console.table("CampaignName:" + _vwo_exp[expId].name);
         console.table("VariationId:" + variationId);
         console.table("VariationName:" + _vwo_exp[expId].comb_n[variationId]);
-        });
     }
 }]);
 	</script>
@@ -107,6 +106,25 @@ if (oS === 'macOS') {
    console.log(data, "Segmentation Evaluation")
 }]);
 	</script>
+
+	<script>
+		//preHook
+		window.VWO.push(['addPreHook', function(vwoEventPayload) {
+    const evt = vwoEventPayload?.d?.event;
+    if (evt?.name === 'digianClick') {
+      // Ensure props is an object
+      evt.props = evt.props || {};
+      console.log(evt.props)
+
+      // Override subscribedEmail only
+      if (evt.props.assessment) {
+        evt.props.assessment = '[preHook]';
+      }
+      console.log('Pre-hook triggered, modified props:', evt.props);
+    }
+    return vwoEventPayload;
+  }]);
+
 
 
   <div class="hero_area">
@@ -763,6 +781,7 @@ const element = document.getElementById("accept-cookies");
 </body>
 
 </html>
+
 
 
 
