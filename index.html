@@ -784,12 +784,16 @@ if (oS === 'macOS') {
   <script src="js/jquery-3.4.1.min.js"></script>
    
    <script>
-const element = document.getElementById("accept-cookies");
+const element = document.getElementByClassName("quote-btn");
    element.addEventListener("click", function() {
  
 	window.VWO = window.VWO || [];
-	window.VWO.init = window.VWO.init || function(state) { window.VWO.consentState = state; }
-	window.VWO.init(1);
+	VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
+
+	// Replace the property values with your actual values
+	VWO.event("digianClick", {
+		"hasClick": true
+	});
 
 });
 </script>
@@ -797,6 +801,7 @@ const element = document.getElementById("accept-cookies");
   
   <script>
     $( document ).ready(function() {
+		
       let link = window.location.href;
       if (link.indexOf("gui") > -1) {
           $(".quote_btn").html("FREE DEMO HERE");
@@ -807,6 +812,7 @@ const element = document.getElementById("accept-cookies");
 </body>
 
 </html>
+
 
 
 
