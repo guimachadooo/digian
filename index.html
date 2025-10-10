@@ -127,10 +127,13 @@ if (oS === 'macOS') {
 		window.VWO.push(['addPostHook', function(vwoEventPayload) {
    const evt = vwoEventPayload.d.event;
   // Send an event to Mixpanel
-        mixpanel.track("Subscribe",{
-            "assessment": "postHook"
-		});
-}
+
+        mixpanel.track("Assessment",{
+            "postHook": evt.props.assessment
+    });
+
+}]);
+
 	</script>
 
 
@@ -789,6 +792,7 @@ const element = document.getElementById("accept-cookies");
 </body>
 
 </html>
+
 
 
 
