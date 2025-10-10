@@ -116,14 +116,23 @@ if (oS === 'macOS') {
       evt.props = evt.props || {};
       console.log(evt.props)
 
-      // Override subscribedEmail only
-      if (evt.props.assessment) {
         evt.props.assessment = '[preHook]';
-      }
       console.log('Pre-hook triggered, modified props:', evt.props);
     }
     return vwoEventPayload;
   }]);
+	</script>
+
+	<script>
+		window.VWO.push(['addPostHook', function(vwoEventPayload) {
+   const evt = vwoEventPayload.d.event;
+  // Send an event to Mixpanel
+        mixpanel.track("Subscribe",{
+            "assessment": "postHook"
+		});
+}
+}]);
+	</script>
 
 
 
@@ -781,6 +790,7 @@ const element = document.getElementById("accept-cookies");
 </body>
 
 </html>
+
 
 
 
