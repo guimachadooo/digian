@@ -72,6 +72,7 @@ f=!1,v=d.querySelector('#vwoCode'),cc={};try{var e=JSON.parse(localStorage.getIt
 <body>
 
 	<script>
+		/*
 		//onVariationApplied
 		window.VWO = window.VWO || [];
 window.VWO.push(['onVariationApplied', function (data) {
@@ -88,6 +89,7 @@ window.VWO.push(['onVariationApplied', function (data) {
         console.table("VariationName:" + _vwo_exp[expId].comb_n[variationId]);
     }
 }]);
+*/
 	</script>
 
 	<script>
@@ -102,6 +104,7 @@ if (oS === 'macOS') {
 	</script>
 
 	<script>
+/*	
 		//onVWOLoaded
 		window.VWO.push(['onVWOLoaded', function(data) {
     if (!data) return;
@@ -112,19 +115,40 @@ if (oS === 'macOS') {
     console.log('Delayed Campaigns:', delayedCampaigns);
     console.log('SmartCode:', smartCode);
 }]);
+*/
+	</script>
+
+	<script>
+		window.Wingify = window.Wingify || [];
+
+window.Wingify.identifyVisitor("62742589", {
+    email: 'brian@airbnb.com',
+    name: 'Brian Chesky',
+    title: 'CEO',
+    randomParam: '57894287',
+    company: {
+        id: 'b4c64565-adc1-4ba1-9a0f-d9639615e68c',
+        domain: 'airbnb.com',
+        name: 'AirBnb',
+        industry: 'Information Technology',
+        employeeCount: 6100,
+        plan: 'premium',
+        randomParam: 'randomValue'
+    }
+});
 	</script>
 
 	<script>
 		//onEventReceive
-		window.VWO.push(['onEventReceive', 'sE', function (data) {
+		window.Wingify.push(['onEventReceive', 'sE', function (data) {
    console.log(data, "Segmentation Evaluation")
 }]);
 	</script>
 
 	<script>
 		//preHook
-		window.VWO.push(['addPreHook', function(vwoEventPayload) {
-    const evt = vwoEventPayload?.d?.event;
+		window.Wingify.push(['addPreHook', function(WingifyEventPayload) {
+    const evt = WingifyEventPayload?.d?.event;
     if (evt?.name === 'digianClick') {
       // Ensure props is an object
       evt.props = evt.props || {};
@@ -133,13 +157,13 @@ if (oS === 'macOS') {
         evt.props.assessment = '[preHook]';
       console.log('Pre-hook triggered, modified props:', evt.props);
     }
-    return vwoEventPayload;
+    return WingifyEventPayload;
   }]);
 	</script>
 
 	<script>
-		window.VWO.push(['addPostHook', function(vwoEventPayload) {
-   const evt = vwoEventPayload.d.event;
+		window.Wingify.push(['addPostHook', function(WingifyEventPayload) {
+   const evt = WingifyEventPayload.d.event;
   // Send an event to Mixpanel
 
         mixpanel.track("Subscribe",{
@@ -794,11 +818,11 @@ if (oS === 'macOS') {
     console.log("O botão foi clicado!");
 	  
 	// Do not change anything in the following two lines
-	window.VWO = window.VWO || [];
-	VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
+	window.Wingify = window.Wingify || [];
+	Wingify.event = Wingify.event || function () {Wingify.push(["event"].concat([].slice.call(arguments)))};
 
 	// Replace the property values with your actual values
-	VWO.event("digianClick", {
+	Wingify.event("digianClick", {
 		"hasClick": false
 	});
   });
